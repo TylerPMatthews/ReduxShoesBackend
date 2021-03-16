@@ -7,12 +7,12 @@ const getAll = () => {
 
 //Get Men Nike shoes
 const getMen = () => {
-  return db("shoes").where("shoe_brand", "Nike").where("shoe_gender", "m");
+  return db("shoes").where("shoe_brand", "Nike" && "shoe_gender", "m");
 };
 
 //Get Women Nike shoes
 const getWomen = () => {
-  return db("shoes").where("shoe_brand", "Nike").where("shoe_gender", "w");
+  return db("shoes").where("shoe_brand", "Nike" && "shoe_brand", "Nike" && "shoe_gender", "w")
 };
 
 //Get shoe by ID
