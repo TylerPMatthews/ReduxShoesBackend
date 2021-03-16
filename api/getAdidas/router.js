@@ -23,7 +23,7 @@ router.get("/:id", async (req, res, next) => {
 });
 
 //Get Men Adidas shoes
-router.get("/men", async (req, res, next) => {
+router.get("/menadidas", async (req, res, next) => {
   try {
     const rows = await Model.getMen();
     res.status(200).json(rows);
@@ -33,13 +33,21 @@ router.get("/men", async (req, res, next) => {
 });
 
 //Get Women Adidas shoes
-router.get("/women", async (req, res, next) => {
+router.get("/womenadidas", async (req, res, next) => {
   try {
     const rows = await Model.getWomen();
     res.status(200).json(rows);
   } catch (e) {
     next(e);
   }
+});
+
+//Error handler
+router.use((err, req, res) => {
+  res.status(500).json({
+    message: " Adidas server error!!!",
+    error: err.message,
+  });
 });
 
 module.exports = router;

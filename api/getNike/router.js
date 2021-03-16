@@ -72,4 +72,11 @@ router.put("/:id", async (req, res, next) => {
   }
 });
 
+//Error handler
+router.use((err, req, res) => {
+  res.status(500).json({
+    message: " Nike server error!!!",
+    error: err.message,
+  });
+});
 module.exports = router;
